@@ -2,14 +2,13 @@ package tester;
 
 
 import org.openqa.selenium.*;
-import org.sikuli.script.FindFailed;
 import utils.BrowserFactory;
 import utils.Pages;
 
 import java.awt.*;
 
 public class TryCode {
-    public static void main(String args[]) throws InterruptedException, AWTException, FindFailed {
+    public static void main(String args[]) throws InterruptedException, AWTException {
         WebDriver driver = BrowserFactory.getDriver();
         Pages.loginPage().getToLoginPage();
         Pages.loginPage().enterUsername();

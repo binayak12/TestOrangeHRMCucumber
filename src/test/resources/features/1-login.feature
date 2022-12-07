@@ -1,6 +1,3 @@
-#Author: binayaksadhukhan@gmail.com
-#Keywords Summary : Login Testing
-
 @loginPage
 Feature: Login Feature
   I want to test login feature
@@ -21,20 +18,20 @@ Feature: Login Feature
     And we enter password "xyz"
     And click on login button
     Then "Invalid credentials" error message shows up in login page
-    
+
   @smoke
   Scenario: Valid username and invalid password
     When we enter valid username
     And we enter password "xyz"
     And click on login button
     Then "Invalid credentials" error message shows up in login page
-    
+
   @smoke
   Scenario: Valid username and blank password
     When we enter valid username
     And click on login button
     Then "Required" message shows up below password field
-    
+
   @smoke
   Scenario: Blank username and blank password
     And click on login button

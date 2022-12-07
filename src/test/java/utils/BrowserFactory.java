@@ -41,18 +41,8 @@ public class BrowserFactory {
 
         if(notStarted) {
             Properties websiteDetails = new Properties();
-            FileInputStream websiteDetailsFile;
             try {
-                websiteDetailsFile = new FileInputStream("src/test/resources/config/browserDetails.property");
-            } catch (FileNotFoundException e) {
-                System.out.println("File Not Detected");
-                driver = getDriver(defaultBrowser);
-                driver.manage().window().maximize();
-                return driver;
-            }
-
-            try {
-                websiteDetails.load(websiteDetailsFile);
+                websiteDetails.load(BrowserFactory.class.getClassLoader().getResourceAsStream("browserDetails.property"));
             } catch (IOException e) {
                 System.out.println("File not Loading");
                 driver = getDriver(defaultBrowser);

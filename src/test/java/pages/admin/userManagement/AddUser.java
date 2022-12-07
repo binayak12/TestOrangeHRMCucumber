@@ -5,10 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.sikuli.script.FindFailed;
-import org.sikuli.script.ImagePath;
-import org.sikuli.script.Pattern;
-import org.sikuli.script.Screen;
 
 import java.awt.*;
 import java.util.List;
@@ -18,14 +14,11 @@ public class AddUser {
     private WebDriver driver;
     private Actions act;
     private int waitTime = 15;
-    private Screen screen;
 
     public AddUser(WebDriver driver) throws AWTException {
         this.driver = driver;
         act = new Actions(driver);
-        screen = new Screen();
         driver.manage().timeouts().implicitlyWait(waitTime, TimeUnit.SECONDS);
-        ImagePath.add(System.getProperty("user.dir"));
     }
 
     @FindBy(xpath = "//div[@role='option']/span")
@@ -111,9 +104,4 @@ public class AddUser {
         return this;
     }
 
-    public AddUser clickSave() throws FindFailed {
-        Pattern img = new Pattern("src/test/resources/websiteSikuliImages/admin/addUser/saveBtn.png");
-        screen.click(img);
-        return this;
-    }
 }
